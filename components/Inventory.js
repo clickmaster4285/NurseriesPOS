@@ -77,31 +77,6 @@ export function ProductCard({ product, onAddToCart, onSeeDetails }) {
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
           />
-
-          {/* Quick View Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center translate-y-8 opacity-0 
-            group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-20">
-            <div className="bg-white/95 backdrop-blur-md text-green-700 px-8 py-4 rounded-full 
-              font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-3">
-              <Eye size={18} />
-              Quick Inspect
-            </div>
-          </div>
-
-          {/* Floating Animation on Hover */}
-          <AnimatePresence>
-            {isHovered && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                className="absolute bottom-4 left-4 right-4 z-20 h-24 rounded-2xl overflow-hidden 
-                  bg-white/90 backdrop-blur-sm shadow-lg"
-              >
-                <PlantGrowth className="w-full h-full" />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
 
         {/* Content */}

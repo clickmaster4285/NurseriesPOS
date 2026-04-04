@@ -39,9 +39,9 @@ export default function ContactPage() {
             alt="Contact us background"
             className="w-full h-full object-cover"
           />
-          {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent" />
+          {/* linear Overlays */}
+          <div className="absolute inset-0 bg-linear-to-t from-white via-white/85 to-white/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-white/95 via-white/80 to-transparent" />
         </div>
 
         {/* Floating Animations */}
@@ -97,7 +97,7 @@ export default function ContactPage() {
                 whileHover={{ x: 8 }}
                 className="flex items-start gap-6 group cursor-default p-6 rounded-3xl hover:bg-green-50 transition-colors"
               >
-                  <div className="p-5 bg-gradient-to-br from-green-600 to-emerald-600 rounded-3xl text-white shadow-xl shadow-green-500/30">
+                  <div className="p-5 bg-linear-to-br from-green-600 to-emerald-600 rounded-3xl text-white shadow-xl shadow-green-500/30">
                      <Mail size={32} />
                   </div>
                   <div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 whileHover={{ x: 8 }}
                 className="flex items-start gap-6 group cursor-default p-6 rounded-3xl hover:bg-green-50 transition-colors"
               >
-                  <div className="p-5 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-3xl text-white shadow-xl shadow-emerald-500/30">
+                  <div className="p-5 bg-linear-to-br from-emerald-600 to-teal-600 rounded-3xl text-white shadow-xl shadow-emerald-500/30">
                      <MapPin size={32} />
                   </div>
                   <div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                 whileHover={{ x: 8 }}
                 className="flex items-start gap-6 group cursor-default p-6 rounded-3xl hover:bg-green-50 transition-colors"
               >
-                  <div className="p-5 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-3xl text-white shadow-xl shadow-teal-500/30">
+                  <div className="p-5 bg-linear-to-br from-teal-600 to-cyan-600 rounded-3xl text-white shadow-xl shadow-teal-500/30">
                      <Clock size={32} />
                   </div>
                   <div>
@@ -141,7 +141,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 p-10 relative overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 
+              className="mt-12 p-10 relative overflow-hidden bg-linear-to-br from-green-50 to-emerald-50 
                 rounded-3xl shadow-2xl border border-green-200"
             >
                <div className="absolute top-0 right-0 w-32 h-32 bg-green-200 rounded-full blur-[60px]" />

@@ -2,41 +2,57 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const LeafIcon = ({ color, size, delay, left }) => (
+const LeafIcon = ({ color, size, delay, left, opacity }) => (
   <motion.div
     initial={{ y: -100, opacity: 0, x: 0, rotate: 0 }}
-    animate={{ 
-      y: ['0vh', '110vh'], 
-      opacity: [1, 1, 0],
+    animate={{
+      y: ['0vh', '110vh'],
+      opacity: [opacity, opacity, 0],
       x: [0, 50, -50, 20],
       rotate: [0, 360, 720]
     }}
-    transition={{ 
-      duration: 10 + Math.random() * 10, 
-      repeat: Infinity, 
+    transition={{
+      duration: 10 + Math.random() * 10,
+      repeat: Infinity,
       delay: delay,
       ease: "linear"
     }}
-    style={{ 
-      position: 'absolute', 
-      left: `${left}%`, 
+    style={{
+      position: 'absolute',
+      left: `${left}%`,
       zIndex: 5,
       pointerEvents: 'none'
     }}
   >
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke={color} 
-      strokeWidth="1.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-      className="opacity-20"
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill={color}
+      className="drop-shadow-lg"
     >
-      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8a7 7 0 0 1-9 10Z" />
-      <path d="M19 2v5h-5" />
+      {/* Realistic leaf shape with stem */}
+      <path d="M50 5 
+               C50 5, 80 20, 85 50 
+               C90 80, 50 95, 50 95 
+               C50 95, 10 80, 15 50 
+               C20 20, 50 5, 50 5 Z" />
+      {/* Leaf vein */}
+      <path 
+        d="M50 15 L50 85" 
+        stroke="rgba(0,0,0,0.15)" 
+        strokeWidth="2" 
+        fill="none"
+        strokeLinecap="round"
+      />
+      {/* Side veins */}
+      <path 
+        d="M50 30 L35 45 M50 40 L65 55 M50 50 L38 62 M50 60 L62 72" 
+        stroke="rgba(0,0,0,0.1)" 
+        strokeWidth="1.5" 
+        fill="none"
+        strokeLinecap="round"
+      />
     </svg>
   </motion.div>
 );
@@ -48,12 +64,26 @@ export default function FallingLeaves() {
   useEffect(() => {
     setMounted(true);
     // Generate leaves only on client to avoid hydration mismatch
-    const generatedLeaves = Array.from({ length: 15 }).map((_, i) => ({
+    const realGreenColors = [
+      '#2d5016', // Dark forest green
+      '#3a6b1e', // Deep green
+      '#4a7c2e', // Rich green
+      '#228B22', // Forest green
+      '#32CD32', // Lime green
+      '#6B8E23', // Olive drab
+      '#556B2F', // Dark olive
+      '#6a994e', // Sage green
+      '#7cb342', // Fresh green
+      '#4caf50', // Vibrant green
+    ];
+    
+    const generatedLeaves = Array.from({ length: 20 }).map((_, i) => ({
       id: i,
-      size: 20 + Math.random() * 30,
-      color: i % 2 === 0 ? '#1b5e20' : '#8d6e63',
+      size: 25 + Math.random() * 40,
+      color: realGreenColors[Math.floor(Math.random() * realGreenColors.length)],
       delay: Math.random() * 10,
       left: Math.random() * 100,
+      opacity: 0.4 + Math.random() * 0.4,
     }));
     setLeaves(generatedLeaves);
   }, []);

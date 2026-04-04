@@ -25,8 +25,8 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
             {[Globe, Share2, MessageCircle].map((Icon, i) => (
-              <a 
-                key={i} 
+              <a
+                key={i}
                 className="p-3 bg-white/5 hover:bg-primary rounded-full transition-all hover:scale-110 active:scale-95"
                 href="#"
               >
@@ -56,15 +56,15 @@ export default function Footer() {
           <ul className="flex flex-col gap-5 text-white/60">
             <li className="flex items-center gap-3">
               <MapPin size={20} className="text-primary" />
-              <span>123 Green Lane, Forest Hills, NY</span>
+              <span>123 PWD, Islamabad, Pakistan</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={20} className="text-primary" />
-              <span>+1 (555) 000-GROW</span>
+              <span>+92 (324) 000000</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={20} className="text-primary" />
-              <span>hello@blossompos.com</span>
+              <span>sales@clickmasters.pk</span>
             </li>
           </ul>
         </div>
@@ -74,8 +74,8 @@ export default function Footer() {
           <h4 className="text-xl font-bold mb-8 text-white">Newsletter</h4>
           <p className="text-white/60 mb-6 font-medium">Subscribe for garden tips and software updates.</p>
           <div className="relative group">
-            <input 
-              type="email" 
+            <input
+              type="email"
               placeholder="Your email"
               className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary transition-all text-white pr-16"
             />

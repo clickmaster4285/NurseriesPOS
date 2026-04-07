@@ -56,11 +56,11 @@ export default function Footer() {
           <ul className="flex flex-col gap-5 text-white/60">
             <li className="flex items-center gap-3">
               <MapPin size={20} className="text-primary" />
-              <span>123 PWD, Islamabad, Pakistan</span>
+              <span>PWD, Islamabad, Pakistan</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={20} className="text-primary" />
-              <span>+92 (324) 000000</span>
+              <span>+92 (332) 5394285</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={20} className="text-primary" />

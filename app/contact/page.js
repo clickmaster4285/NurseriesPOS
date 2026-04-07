@@ -103,7 +103,6 @@ export default function ContactPage() {
                         <div>
                            <h3 className="text-2xl font-black text-gray-900 mb-2">Email Address</h3>
                            <p className="text-gray-500 font-bold mb-1">General: sales@clickmasters.pk</p>
-                           // <p className="text-gray-500 font-bold">Rare Finds: rare@blossompos.com</p>
                         </div>
                      </motion.div>
 

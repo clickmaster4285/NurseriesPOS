@@ -1,4 +1,6 @@
 'use client';
+
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -61,8 +63,9 @@ const INITIAL_PRODUCTS = [
     basePrice: 85.00,
     size: 'Extra Large',
     images: [
+      '/plants/fiddle_leaf_fig.webp',
+      '/plants/fiddle_leaf_fig1.webp',
       'https://images.unsplash.com/photo-1597055181300-e3633a917c9c?w=800&q=80',
-      'https://images.unsplash.com/photo-1588817610796-1e283f9b7795?w=800&q=80'
     ],
     description: 'A striking statement piece with massive violin-shaped leaves. It demands attention and a consistent care routine.',
     variants: [
@@ -95,8 +98,9 @@ const INITIAL_PRODUCTS = [
     basePrice: 35.00,
     size: 'Medium',
     images: [
-      'https://images.unsplash.com/photo-1589834390005-2d8a09355e9e?w=800&q=80',
-      'https://images.unsplash.com/photo-1611171711455-39e47de96a87?w=800&q=80'
+      '/plants/peace_lily_wallisi.jpg',
+      '/plants/peace_lily_wallisi1.jpg',
+      '/plants/peace-lily-domino.webp',
     ],
     description: 'Elegant white spaths that signify peace. It is excellent at cleaning air and tells you exactly when it needs water.',
     variants: [
@@ -123,11 +127,11 @@ const INITIAL_PRODUCTS = [
     care: { light: 'Full Sun', water: 'Monthly', humidity: 'Low' }
   },
   { id: 7, name: 'String of Pearls', category: 'Succulents', basePrice: 18.00, size: 'Small', images: ['https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=800&q=80'], description: 'Trailing beads of green beauty.', variants: [{ id: '7-s', name: '4" Hanging Pot', price: 18, stock: 20 }], care: { light: 'Bright', water: 'Sparse', humidity: 'Low' } },
-  { id: 8, name: 'Calathea Orbifolia', category: 'Indoor', basePrice: 40.00, size: 'Medium', images: ['https://images.unsplash.com/photo-1620127372531-1f1766909688?w=800&q=80'], description: 'Silver-striped architectural leaves.', variants: [{ id: '8-s', name: '6" Pot', price: 40, stock: 6 }], care: { light: 'Shade', water: 'Regular', humidity: 'High' } },
+  { id: 8, name: 'Calathea Orbifolia', category: 'Indoor', basePrice: 40.00, size: 'Medium', images: ['https://images.unsplash.com/photo-1602923668104-8f9e03e77e62?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&q=80', 'https://images.unsplash.com/photo-1606146350176-804f4c84fb30?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhbGF0aGVhfGVufDB8fDB8fHww'], description: 'Silver-striped architectural leaves.', variants: [{ id: '8-s', name: '6" Pot', price: 40, stock: 6 }], care: { light: 'Shade', water: 'Regular', humidity: 'High' } },
   { id: 9, name: 'Bird of Paradise', category: 'Tropical', basePrice: 95.00, size: 'Large', images: ['https://images.unsplash.com/photo-1597055181300-e3633a917c9c?w=800&q=80'], description: 'The ultimate tropical statement plant.', variants: [{ id: '9-l', name: '10" Pot', price: 95, stock: 4 }], care: { light: 'Direct', water: 'Weekly', humidity: 'Moderate' } },
-  { id: 10, name: 'Philodendron Pink Princess', category: 'Rare', basePrice: 125.00, size: 'Medium', images: ['https://images.unsplash.com/photo-1612361668734-57c526c9560f?w=800&q=80'], description: 'Stunning pink variegation. Collector\'s Rarity.', variants: [{ id: '10-s', name: '4" Starter', price: 85, stock: 2 }, { id: '10-m', name: '6" Mature', price: 125, stock: 1 }], care: { light: 'Bright Indirect', water: 'When Dry', humidity: 'High' } },
-  { id: 11, name: 'Organic Neem Spray', category: 'Supplies', basePrice: 15.00, size: '500ml', images: ['https://images.unsplash.com/photo-1585422132771-ee3e789d8b47?w=800&q=80'], description: 'Keep your sanctuary pest-free naturally.', variants: [{ id: '11-s', name: '500ml Spray', price: 15, stock: 100 }], care: { light: 'N/A', water: 'N/A', humidity: 'N/A' } },
-  { id: 12, name: 'Terra Cotta Set', category: 'Supplies', basePrice: 30.00, size: 'Set of 3', images: ['https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=800&q=80'], description: 'Authentic breathable Italian clay pots.', variants: [{ id: '12-s', name: 'Professional Set', price: 30, stock: 20 }], care: { light: 'N/A', water: 'N/A', humidity: 'N/A' } },
+  { id: 10, name: 'Philodendron Pink Princess', category: 'Rare', basePrice: 125.00, size: 'Medium', images: ['https://images.unsplash.com/photo-1633789242210-902ff168f81f?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&q=80', 'https://images.unsplash.com/photo-1633789242210-902ff168f81f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGhpbG9kZW5kcm9uJTIwUGluayUyMFByaW5jZXNzfGVufDB8fDB8fHww'], description: 'Stunning pink variegation. Collector\'s Rarity.', variants: [{ id: '10-s', name: '4" Starter', price: 85, stock: 2 }, { id: '10-m', name: '6" Mature', price: 125, stock: 1 }], care: { light: 'Bright Indirect', water: 'When Dry', humidity: 'High' } },
+  { id: 11, name: 'Organic Neem Spray', category: 'Supplies', basePrice: 15.00, size: '500ml', images: ['https://images.unsplash.com/photo-1687945906634-25c66199d941?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&q=80', 'https://images.unsplash.com/photo-1669574753113-6442f2cc69b7?q=80&w=761&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'], description: 'Keep your sanctuary pest-free naturally.', variants: [{ id: '11-s', name: '500ml Spray', price: 15, stock: 100 }], care: { light: 'N/A', water: 'N/A', humidity: 'N/A' } },
+  { id: 12, name: 'Terra Cotta Set', category: 'Supplies', basePrice: 30.00, size: 'Set of 3', images: ['https://images.unsplash.com/photo-1653340193326-a803d6d3e3d2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800&q=80', 'https://images.unsplash.com/photo-1621512366138-8e928b8903c8?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'], description: 'Authentic breathable Italian clay pots.', variants: [{ id: '12-s', name: 'Professional Set', price: 30, stock: 20 }], care: { light: 'N/A', water: 'N/A', humidity: 'N/A' } },
 ];
 
 export default function Home() {
@@ -138,17 +142,17 @@ export default function Home() {
 
   // Load from LocalStorage
   useEffect(() => {
-    const savedProducts = localStorage.getItem('blossom_products');
-    const savedCart = localStorage.getItem('blossom_cart');
-    if (savedProducts) setProducts(JSON.parse(savedProducts));
+    // Force clear old broken product data
+    localStorage.removeItem('blossom_products');
+    
+    const savedCart = localStorage.getItem('blossom_cart_v2');
     if (savedCart) setCart(JSON.parse(savedCart));
   }, []);
 
   // Save to LocalStorage
   useEffect(() => {
-    localStorage.setItem('blossom_products', JSON.stringify(products));
-    localStorage.setItem('blossom_cart', JSON.stringify(cart));
-  }, [products, cart]);
+    localStorage.setItem('blossom_cart_v2', JSON.stringify(cart));
+  }, [cart]);
 
   // Cart Actions (Corrected for Variants)
   const addToCart = (product, variant) => {

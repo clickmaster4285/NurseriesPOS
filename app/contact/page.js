@@ -103,7 +103,7 @@ export default function ContactPage() {
                         <div>
                            <h3 className="text-2xl font-black text-gray-900 mb-2">Email Address</h3>
                            <p className="text-gray-500 font-bold mb-1">General: sales@clickmasters.pk</p>
-                           <p className="text-gray-500 font-bold">Rare Finds: rare@blossompos.com</p>
+                           // <p className="text-gray-500 font-bold">Rare Finds: rare@blossompos.com</p>
                         </div>
                      </motion.div>
 
@@ -115,9 +115,9 @@ export default function ContactPage() {
                            <MapPin size={32} />
                         </div>
                         <div>
-                           <h3 className="text-2xl font-black text-gray-900 mb-2">Visit the Sanctuary</h3>
-                           <p className="text-gray-500 font-bold mb-1">12 Botanical Gardens Lane,</p>
-                           <p className="text-gray-500 font-bold">San Francisco, CA 94103</p>
+                           <h3 className="text-2xl font-black text-gray-900 mb-2">Visit the Office</h3>
+                           <p className="text-gray-500 font-bold mb-1">PWD</p>
+                           <p className="text-gray-500 font-bold">Islamabad, PK</p>
                         </div>
                      </motion.div>
 
@@ -129,7 +129,7 @@ export default function ContactPage() {
                            <Clock size={32} />
                         </div>
                         <div>
-                           <h3 className="text-2xl font-black text-gray-900 mb-2">Garden Hours</h3>
+                           <h3 className="text-2xl font-black text-gray-900 mb-2">Office Hours</h3>
                            <p className="text-gray-500 font-bold mb-1">Tue – Fri: 10am – 6pm</p>
                            <p className="text-gray-500 font-bold">Sat – Sun: 11am – 4pm</p>
                         </div>
